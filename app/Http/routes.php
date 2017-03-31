@@ -38,5 +38,14 @@ Route::get('greet/{name}', function($name){
 
 //redireccionado rutas
 Route::get('redirect', function(){
+    return Redirect::to('/');
+});
 
+//ruta nombrada
+Route::get('user/profile', array('as' => 'profile'),function(){
+    return 'Ruta nombrada';
+});
+
+Route::get('get/namedurl', function(){//aqui utilizo la ruta q esta encima
+    return URL::route('profile');
 });
